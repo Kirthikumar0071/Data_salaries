@@ -1,0 +1,50 @@
+create database data_new;
+
+select * from salaries;
+
+select EmployeeName,JobTitle from salaries;
+
+select count(EmployeeName) from salaries; 
+
+select distinct JobTitle from salaries;
+
+select count(distinct JobTitle) from salaries;
+
+select JobTitle,OvertimePay from salaries where OvertimePay>50000;
+
+select avg(BasePay) as "Avg BasePay" from salaries;
+
+select EmployeeName,TotalPay from salaries order by TotalPay desc limit 10 ;
+
+select EmployeeName,(BasePay+OverTimePay+OtherPay)/3 as 'Avg' from salaries;
+
+select EmployeeName from salaries where JobTitle like '%Manager%';
+
+select EmployeeName from salaries where JobTitle <>'Manager';
+
+select EmployeeName from salaries where TotalPay>=50000 and TotalPay<=75000;
+
+select*from salaries where BasePay <50000 or TotalPay >100000;
+
+select * from salaries where TotalPayBenefits between 125000 and 150000 and JobTitle like "%Director%";
+
+select * from salaries order by TotalPayBenefits desc;
+
+select JobTitle,avg(BasePay) as 'avgbase' from salaries group by JobTitle having avg(BasePay)>=100000 order by avgbase desc;
+
+select * from salaries;
+
+alter table salaries drop column Notes;
+
+update  salaries set Basepay=BasePay*1.1 where JobTitle Like '%Manager%';
+
+select* from salaries;
+
+select * from salaries where OvertimePay=0;
+ delete from salaries where OvertimePay=0;
+ 
+
+
+
+
+
